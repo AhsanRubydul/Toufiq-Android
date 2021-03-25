@@ -9,7 +9,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, QiblaFragment())
+            .replace(R.id.fragment_container, TasbeehFragment())
             .commit()
     }
 }
