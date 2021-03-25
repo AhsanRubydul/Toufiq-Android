@@ -1,4 +1,4 @@
-package com.shahcement.toufiq
+package com.shahcement.toufiq.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

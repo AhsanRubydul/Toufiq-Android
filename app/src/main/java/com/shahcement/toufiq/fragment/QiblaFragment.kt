@@ -1,4 +1,4 @@
-package com.shahcement.toufiq
+package com.shahcement.toufiq.fragment
 
 import android.content.Context.SENSOR_SERVICE
 import android.hardware.Sensor

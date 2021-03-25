@@ -1,10 +1,11 @@
-package com.shahcement.toufiq
+package com.shahcement.toufiq.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import com.shahcement.toufiq.R
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

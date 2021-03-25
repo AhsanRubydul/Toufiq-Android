@@ -1,7 +1,9 @@
-package com.shahcement.toufiq
+package com.shahcement.toufiq.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.shahcement.toufiq.R
+import com.shahcement.toufiq.fragment.DuaFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
