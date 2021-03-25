@@ -4,9 +4,10 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:layout_gravity="center"
-        android:text="Footer Text"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/source_string" />
 
 </FrameLayout>
