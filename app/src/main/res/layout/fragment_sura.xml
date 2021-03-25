@@ -13,7 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:contentDescription="@null"
-        android:src="@drawable/txt_img_important_dua" />
+        android:src="@drawable/txt_img_important_sura" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
