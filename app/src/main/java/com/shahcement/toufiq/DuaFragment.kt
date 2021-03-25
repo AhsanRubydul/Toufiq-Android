@@ -11,7 +11,6 @@ import com.shahcement.toufiq.databinding.FragmentDuaBinding
 import com.shahcement.toufiq.model.CommonModel
 import org.json.JSONArray
 import org.json.JSONException
-import org.json.JSONObject
 import java.io.IOException
 import java.nio.charset.Charset
 
@@ -24,10 +23,8 @@ class DuaFragment : Fragment() {
     private var _binding : FragmentDuaBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         _binding = FragmentDuaBinding.inflate(inflater, container, false)
         return binding.root
@@ -62,8 +59,7 @@ class DuaFragment : Fragment() {
     }
 
     private fun loadJSONFromAsset(): String? {
-        var json: String? = null
-        json = try {
+        return try {
             val inputStream = requireActivity().assets.open("dua.json")
             val size: Int = inputStream.available()
             val buffer = ByteArray(size)
@@ -74,7 +70,6 @@ class DuaFragment : Fragment() {
             ex.printStackTrace()
             return null
         }
-        return json
     }
 
     override fun onDestroyView() {
