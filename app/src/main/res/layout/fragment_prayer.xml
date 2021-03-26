@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img_background"
+    android:orientation="vertical"
     tools:context=".fragment.PrayerFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/tvHeader"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/shobuj_nolua"
+        android:gravity="center"
+        android:text="@string/prayer_times"
+        android:textColor="@color/shah_cement_red"
+        android:textSize="25sp" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tvSelectDistrict"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/select_district" />
+
+
+</LinearLayout>
