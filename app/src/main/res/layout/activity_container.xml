@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.MainActivity">
+    tools:context=".activity.ContainerActivity">
 
     <ImageView
         android:id="@+id/ivHeader"
@@ -13,10 +13,6 @@
         android:adjustViewBounds="true"
         android:contentDescription="@null"
         android:src="@drawable/img_header" />
-
-    <include
-        android:id="@+id/headerTabs"
-        layout="@layout/layout_header_tabs" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
