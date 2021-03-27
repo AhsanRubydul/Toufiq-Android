@@ -4,11 +4,17 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.shahcement.toufiq.app.App
+import com.shahcement.toufiq.db.dao.DistrictDao
+import com.shahcement.toufiq.db.dao.WaktDao
+import com.shahcement.toufiq.db.entity.District
+import com.shahcement.toufiq.db.entity.Wakt
 
-@Database(entities = [District::class], version = 2)
+@Database(entities = [District::class, Wakt::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun districtDao(): DistrictDao
+
+    abstract fun waktDao(): WaktDao
 
     companion object {
         private const val DATABASE_NAME = "db.sqlite"

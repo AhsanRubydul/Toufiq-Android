@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter
 import com.shahcement.toufiq.R
 import com.shahcement.toufiq.databinding.FragmentPrayerBinding
 import com.shahcement.toufiq.db.DataRepository
-import com.shahcement.toufiq.db.District
+import com.shahcement.toufiq.db.entity.District
 
 
 class PrayerFragment : Fragment() {

@@ -1,8 +1,8 @@
-package com.shahcement.toufiq.db;
+package com.shahcement.toufiq.db.entity
 
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 
 @Entity(tableName = "district")
