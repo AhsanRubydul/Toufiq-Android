@@ -41,7 +41,7 @@ class DuaFragment : Fragment() {
     }
 
     private fun parseData() {
-        Utils.loadJSONFromAsset(requireActivity().assets, "dua.jso")?.let {
+        Utils.loadJSONFromAsset(requireActivity().assets, "dua.json")?.let {
             try {
                 val array = JSONArray(it)
                 for (i in 0 until array.length()) {
