@@ -6,4 +6,10 @@ object AppConstants {
     const val DUA = 2
     const val TASBEEH = 3
     const val QIBLA = 4
+
+    const val FAZAR = "ফজর"
+    const val ZOHAR = "যোহর"
+    const val ASR = "আছর"
+    const val MAGHRIB = "মাগরিব"
+    const val ISHA = "এশা"
 }

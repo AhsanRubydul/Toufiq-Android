@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.shahcement.toufiq.AppConstants
 import com.shahcement.toufiq.R
 import com.shahcement.toufiq.adapter.PrayerAdapter
 import com.shahcement.toufiq.databinding.FragmentPrayerBinding
@@ -27,8 +28,10 @@ class PrayerFragment : Fragment() {
     private var _binding: FragmentPrayerBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentPrayerBinding.inflate(inflater, container, false)
         return binding.root
@@ -61,17 +64,19 @@ class PrayerFragment : Fragment() {
         districts.addAll(d)
         districtAdapter.notifyDataSetChanged()
 
-        val selectedId = if (binding.inputLayout.selectedItemPosition == -1) 0 else binding.inputLayout.selectedItemPosition
+        val selectedId =
+            if (binding.inputLayout.selectedItemPosition == -1) 0 else binding.inputLayout.selectedItemPosition
 
         val wakt = DataRepository.getInstance().getWakt(
-            d[selectedId].district_id, "2021-01-01")
+            d[selectedId].district_id, "2021-01-01"
+        )
 
         wakt?.let {
-            prayers.add(Prayer("Fazar", R.drawable.ic_fazar, it.fazarTime))
-            prayers.add(Prayer("Zohar", R.drawable.ic_fazar, it.zoharTime))
-            prayers.add(Prayer("Asr", R.drawable.ic_fazar, it.asarTime))
-            prayers.add(Prayer("Maghrib", R.drawable.ic_fazar, it.maghribTime))
-            prayers.add(Prayer("Esha", R.drawable.ic_fazar, it.ishaTime))
+            prayers.add(Prayer(AppConstants.FAZAR, R.drawable.ic_fazar, it.fazarTime))
+            prayers.add(Prayer(AppConstants.ZOHAR, R.drawable.ic_zohar, it.zoharTime))
+            prayers.add(Prayer(AppConstants.ASR, R.drawable.ic_asr, it.asarTime))
+            prayers.add(Prayer(AppConstants.MAGHRIB, R.drawable.ic_maghrib, it.maghribTime))
+            prayers.add(Prayer(AppConstants.ISHA, R.drawable.ic_isha, it.ishaTime))
         }
 
         prayerAdapter.notifyDataSetChanged()
