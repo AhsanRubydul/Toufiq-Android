@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img_background"
+    android:background="@drawable/bg_app"
     android:orientation="vertical"
     tools:context=".fragment.PrayerFragment">
 
@@ -18,30 +18,52 @@
         android:textColor="@color/shah_cement_red"
         android:textSize="25sp" />
 
-    <TextView
-        android:id="@+id/tvSelectDistrict"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/select_district" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="10dp">
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <AutoCompleteTextView
-            android:id="@+id/spinnerDistrict"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvSelectDistrict"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:editable="false"
-            android:textSize="18sp" />
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/select_district" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/inputLayout"
+                android:layout_alignLeft="@+id/inputLayout"
+                android:layout_alignTop="@+id/inputLayout"
+                android:layout_alignEnd="@+id/inputLayout"
+                android:layout_alignRight="@+id/inputLayout"
+                android:layout_alignBottom="@+id/inputLayout"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/bg_spinner" />
 
+            <Spinner
+                android:id="@+id/inputLayout"
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:background="@null"
+                android:paddingStart="20dp"
+                android:paddingLeft="20dp"
+                android:paddingEnd="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="10dp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 
 </LinearLayout>

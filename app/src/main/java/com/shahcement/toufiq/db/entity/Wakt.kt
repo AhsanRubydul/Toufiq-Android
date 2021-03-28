@@ -2,10 +2,20 @@ package com.shahcement.toufiq.db.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "wakt_timing")
+@Entity(
+    tableName = "wakt_timing",
+    foreignKeys = [ForeignKey(
+        entity = District::class,
+        parentColumns = arrayOf("district_id"),
+        childColumns = arrayOf("district_id"),
+        onDelete = ForeignKey.NO_ACTION,
+        onUpdate = ForeignKey.NO_ACTION
+    )]
+)
 data class Wakt(
     @PrimaryKey(autoGenerate = false)
     val wakt_timing_id: Int,

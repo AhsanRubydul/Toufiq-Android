@@ -42,7 +42,7 @@ class PrayerFragment : Fragment() {
     }
 
     private fun initView() {
-        binding.spinnerDistrict.setAdapter(districtAdapter)
+        binding.inputLayout.adapter = districtAdapter
 
         districts.addAll(DataRepository.getInstance().getDistricts())
         districtAdapter.notifyDataSetChanged()
