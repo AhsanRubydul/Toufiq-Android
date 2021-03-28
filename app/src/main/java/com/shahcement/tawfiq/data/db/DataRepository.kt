@@ -1,6 +1,7 @@
 package com.shahcement.tawfiq.data.db
 
 import com.shahcement.tawfiq.data.db.entity.District
+import com.shahcement.tawfiq.data.db.entity.Ramadan
 import com.shahcement.tawfiq.data.db.entity.Wakt
 
 class DataRepository {
@@ -28,5 +29,13 @@ class DataRepository {
 
     fun getWakt(districtId: Int, date: String): Wakt? {
         return mDatabase.waktDao().getWakt(districtId, date)
+    }
+
+    fun getRamadanTime(districtId: Int, date: String): Ramadan? {
+        return mDatabase.ramadanDao().getRamadanTime(districtId, date)
+    }
+
+    fun getAllRamadanTime(districtId: Int): List<Ramadan> {
+        return mDatabase.ramadanDao().getAllRamadanTime(districtId)
     }
 }

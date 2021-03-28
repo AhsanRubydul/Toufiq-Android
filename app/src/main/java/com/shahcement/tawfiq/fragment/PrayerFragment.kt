@@ -62,12 +62,14 @@ class PrayerFragment : Fragment() {
         binding.spinnerDistrict.adapter = districtAdapter
         binding.spinnerDistrict.setSelection(PreferenceHelper.getInt(PrefConstants.SELECTED_DISTRICT_POS, 0))
 
+        // get districts
+        districts.addAll(DataRepository.getInstance().getDistricts())
+        districtAdapter.notifyDataSetChanged()
+
+        // set recyclerview
         binding.rvPrayerTimes.layoutManager = LinearLayoutManager(requireContext())
         binding.rvPrayerTimes.setHasFixedSize(true)
         binding.rvPrayerTimes.adapter = prayerAdapter
-
-        districts.addAll(DataRepository.getInstance().getDistricts())
-        districtAdapter.notifyDataSetChanged()
     }
 
     private fun initListener() {

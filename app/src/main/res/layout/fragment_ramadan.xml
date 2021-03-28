@@ -13,4 +13,56 @@
         android:layout_height="wrap_content"
         android:text="@string/ramadan_times" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvSelectDistrict"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/select_district" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/spinnerDistrict"
+                android:layout_alignLeft="@+id/spinnerDistrict"
+                android:layout_alignTop="@+id/spinnerDistrict"
+                android:layout_alignEnd="@+id/spinnerDistrict"
+                android:layout_alignRight="@+id/spinnerDistrict"
+                android:layout_alignBottom="@+id/spinnerDistrict"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/bg_spinner" />
+
+            <Spinner
+                android:id="@+id/spinnerDistrict"
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:background="@null"
+                android:paddingStart="20dp"
+                android:paddingLeft="20dp"
+                android:paddingEnd="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="10dp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRamadanTimes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </LinearLayout>

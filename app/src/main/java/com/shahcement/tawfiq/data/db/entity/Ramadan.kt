@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 
 
 @Entity(
-    tableName = "sehri_iftar_timing",
+    tableName = "sehri_iftari_timing",
     foreignKeys = [ForeignKey(
         entity = District::class,
         parentColumns = arrayOf("district_id"),
