@@ -2,7 +2,6 @@ package com.shahcement.toufiq.fragment
 
 import android.os.Bundle
 import android.text.format.DateFormat
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,10 +16,12 @@ import com.shahcement.toufiq.databinding.FragmentPrayerBinding
 import com.shahcement.toufiq.db.DataRepository
 import com.shahcement.toufiq.db.entity.District
 import com.shahcement.toufiq.model.Prayer
+import java.text.SimpleDateFormat
 import java.util.*
 
 
 class PrayerFragment : Fragment() {
+    private val sdf = SimpleDateFormat("EEEE, dd MMMM yyyy", Locale("bn", "BD"))
 
     private val districts: MutableList<District> = mutableListOf()
     private lateinit var districtAdapter: ArrayAdapter<District>
@@ -55,6 +56,8 @@ class PrayerFragment : Fragment() {
     }
 
     private fun initView() {
+        binding.tvDate.text = sdf.format(Date()).toString()
+
         binding.spinnerDistrict.adapter = districtAdapter
         binding.spinnerDistrict.setSelection(1)
 
