@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/ivPrayer"
+        android:layout_alignBottom="@+id/ivPrayer"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_prayer_time" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:paddingStart="35dp"
+        android:paddingLeft="35dp"
+        android:paddingTop="25dp"
+        android:paddingEnd="25dp"
+        android:paddingRight="25dp"
+        android:paddingBottom="35dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        tools:text="Title" />
+
+    <ImageView
+        android:id="@+id/ivPrayer"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:contentDescription="@null"
+        tools:src="@drawable/ic_fazar" />
+
+</RelativeLayout>

@@ -26,7 +26,7 @@ class DataRepository {
         return mDatabase.districtDao().getDistricts()
     }
 
-    fun getWakt(districtId: Int, date: String): Wakt {
+    fun getWakt(districtId: Int, date: String): Wakt? {
         return mDatabase.waktDao().getWakt(districtId, date)
     }
 }
