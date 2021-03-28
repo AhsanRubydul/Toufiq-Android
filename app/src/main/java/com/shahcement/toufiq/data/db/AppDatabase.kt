@@ -1,13 +1,13 @@
-package com.shahcement.toufiq.db
+package com.shahcement.toufiq.data.db
 
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.shahcement.toufiq.app.App
-import com.shahcement.toufiq.db.dao.DistrictDao
-import com.shahcement.toufiq.db.dao.WaktDao
-import com.shahcement.toufiq.db.entity.District
-import com.shahcement.toufiq.db.entity.Wakt
+import com.shahcement.toufiq.data.db.dao.DistrictDao
+import com.shahcement.toufiq.data.db.dao.WaktDao
+import com.shahcement.toufiq.data.db.entity.District
+import com.shahcement.toufiq.data.db.entity.Wakt
 
 @Database(entities = [District::class, Wakt::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {

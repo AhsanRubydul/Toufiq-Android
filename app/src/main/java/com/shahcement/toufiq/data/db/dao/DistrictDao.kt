@@ -1,8 +1,8 @@
-package com.shahcement.toufiq.db.dao
+package com.shahcement.toufiq.data.db.dao
 
 import androidx.room.Dao
 import androidx.room.Query
-import com.shahcement.toufiq.db.entity.District
+import com.shahcement.toufiq.data.db.entity.District
 
 @Dao
 interface DistrictDao {

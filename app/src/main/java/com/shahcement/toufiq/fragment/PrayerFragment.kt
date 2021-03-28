@@ -13,8 +13,10 @@ import com.shahcement.toufiq.AppConstants
 import com.shahcement.toufiq.R
 import com.shahcement.toufiq.adapter.PrayerAdapter
 import com.shahcement.toufiq.databinding.FragmentPrayerBinding
-import com.shahcement.toufiq.db.DataRepository
-import com.shahcement.toufiq.db.entity.District
+import com.shahcement.toufiq.data.db.DataRepository
+import com.shahcement.toufiq.data.db.entity.District
+import com.shahcement.toufiq.data.preference.PrefConstants
+import com.shahcement.toufiq.data.preference.PreferenceHelper
 import com.shahcement.toufiq.model.Prayer
 import java.text.SimpleDateFormat
 import java.util.*
@@ -47,7 +49,6 @@ class PrayerFragment : Fragment() {
         initVariable()
         initView()
         initListener()
-        getWaktData()
     }
 
     private fun initVariable() {
@@ -59,7 +60,7 @@ class PrayerFragment : Fragment() {
         binding.tvDate.text = sdf.format(Date()).toString()
 
         binding.spinnerDistrict.adapter = districtAdapter
-        binding.spinnerDistrict.setSelection(1)
+        binding.spinnerDistrict.setSelection(PreferenceHelper.getInt(PrefConstants.SELECTED_DISTRICT_POS, 0))
 
         binding.rvPrayerTimes.layoutManager = LinearLayoutManager(requireContext())
         binding.rvPrayerTimes.setHasFixedSize(true)
@@ -73,6 +74,7 @@ class PrayerFragment : Fragment() {
         binding.spinnerDistrict.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    PreferenceHelper.put(PrefConstants.SELECTED_DISTRICT_POS, p2)
                     getWaktData()
                 }
 

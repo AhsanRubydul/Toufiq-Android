@@ -1,7 +1,7 @@
-package com.shahcement.toufiq.db
+package com.shahcement.toufiq.data.db
 
-import com.shahcement.toufiq.db.entity.District
-import com.shahcement.toufiq.db.entity.Wakt
+import com.shahcement.toufiq.data.db.entity.District
+import com.shahcement.toufiq.data.db.entity.Wakt
 
 class DataRepository {
 

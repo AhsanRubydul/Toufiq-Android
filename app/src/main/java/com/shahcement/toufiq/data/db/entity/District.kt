@@ -1,4 +1,4 @@
-package com.shahcement.toufiq.db.entity
+package com.shahcement.toufiq.data.db.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
