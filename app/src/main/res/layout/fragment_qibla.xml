@@ -4,13 +4,12 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_app">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:contentDescription="@null"
-        android:src="@drawable/txt_img_qibla" />
+    <TextView
+        android:id="@+id/tvHeader"
+        style="@style/TitleTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/qibla" />
 
     <ImageView
         android:id="@+id/ivCompassBg"

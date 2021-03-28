@@ -9,14 +9,10 @@
 
     <TextView
         android:id="@+id/tvHeader"
+        style="@style/TitleTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/shobuj_nolua"
-        android:gravity="center"
-        android:text="@string/prayer_times"
-        android:textColor="@color/shah_cement_red"
-        android:textSize="25sp" />
+        android:text="@string/prayer_times" />
 
     <TextView
         android:id="@+id/tvDate"

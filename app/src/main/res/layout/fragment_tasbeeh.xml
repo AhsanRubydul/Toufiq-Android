@@ -6,6 +6,13 @@
     android:background="@drawable/bg_app"
     tools:context=".fragment.TasbeehFragment">
 
+    <TextView
+        android:id="@+id/tvHeader"
+        style="@style/TitleTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tasbeeh_count" />
+
     <ImageView
         android:id="@+id/ivTasbeehBg"
         android:layout_width="match_parent"
