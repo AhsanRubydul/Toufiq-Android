@@ -40,18 +40,18 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/inputLayout"
-                android:layout_alignLeft="@+id/inputLayout"
-                android:layout_alignTop="@+id/inputLayout"
-                android:layout_alignEnd="@+id/inputLayout"
-                android:layout_alignRight="@+id/inputLayout"
-                android:layout_alignBottom="@+id/inputLayout"
+                android:layout_alignStart="@+id/spinnerDistrict"
+                android:layout_alignLeft="@+id/spinnerDistrict"
+                android:layout_alignTop="@+id/spinnerDistrict"
+                android:layout_alignEnd="@+id/spinnerDistrict"
+                android:layout_alignRight="@+id/spinnerDistrict"
+                android:layout_alignBottom="@+id/spinnerDistrict"
                 android:contentDescription="@null"
                 android:scaleType="fitXY"
                 android:src="@drawable/bg_spinner" />
 
             <Spinner
-                android:id="@+id/inputLayout"
+                android:id="@+id/spinnerDistrict"
                 android:layout_width="200dp"
                 android:layout_height="80dp"
                 android:background="@null"

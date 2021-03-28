@@ -1,10 +1,13 @@
 package com.shahcement.toufiq.fragment
 
 import android.os.Bundle
+import android.text.format.DateFormat
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.shahcement.toufiq.AppConstants
@@ -13,8 +16,8 @@ import com.shahcement.toufiq.adapter.PrayerAdapter
 import com.shahcement.toufiq.databinding.FragmentPrayerBinding
 import com.shahcement.toufiq.db.DataRepository
 import com.shahcement.toufiq.db.entity.District
-import com.shahcement.toufiq.db.entity.Wakt
 import com.shahcement.toufiq.model.Prayer
+import java.util.*
 
 
 class PrayerFragment : Fragment() {
@@ -42,7 +45,8 @@ class PrayerFragment : Fragment() {
 
         initVariable()
         initView()
-        getData()
+        initListener()
+        getWaktData()
     }
 
     private fun initVariable() {
@@ -51,25 +55,41 @@ class PrayerFragment : Fragment() {
     }
 
     private fun initView() {
-        binding.inputLayout.adapter = districtAdapter
-        binding.inputLayout.setSelection(1)
+        binding.spinnerDistrict.adapter = districtAdapter
+        binding.spinnerDistrict.setSelection(1)
 
         binding.rvPrayerTimes.layoutManager = LinearLayoutManager(requireContext())
         binding.rvPrayerTimes.setHasFixedSize(true)
         binding.rvPrayerTimes.adapter = prayerAdapter
+
+        districts.addAll(DataRepository.getInstance().getDistricts())
+        districtAdapter.notifyDataSetChanged()
     }
 
-    private fun getData() {
-        val d = DataRepository.getInstance().getDistricts()
-        districts.addAll(d)
-        districtAdapter.notifyDataSetChanged()
+    private fun initListener() {
+        binding.spinnerDistrict.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    getWaktData()
+                }
 
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+
+                }
+
+            }
+    }
+
+    private fun getWaktData() {
         val selectedId =
-            if (binding.inputLayout.selectedItemPosition == -1) 0 else binding.inputLayout.selectedItemPosition
+            if (binding.spinnerDistrict.selectedItemPosition == -1) 0 else binding.spinnerDistrict.selectedItemPosition
 
         val wakt = DataRepository.getInstance().getWakt(
-            d[selectedId].district_id, "2021-01-01"
+            districts[selectedId].district_id, DateFormat.format("yyyy-MM-dd", Date()).toString()
         )
+
+        prayers.clear()
+        prayerAdapter.notifyDataSetChanged()
 
         wakt?.let {
             prayers.add(Prayer(AppConstants.FAZAR, R.drawable.ic_fazar, it.fazarTime))
