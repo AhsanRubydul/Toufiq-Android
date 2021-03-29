@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:gravity="center"
+        android:textColor="@color/black"
         tools:text="Saturday, 21 March" />
 
     <LinearLayout
@@ -34,7 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
-            android:text="@string/select_district" />
+            android:text="@string/select_district"
+            android:textColor="@color/black" />
 
         <RelativeLayout
             android:layout_width="wrap_content"

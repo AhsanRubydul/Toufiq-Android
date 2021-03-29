@@ -14,6 +14,7 @@ class RamadanAdapter(private val models: List<Ramadan>) :
     RecyclerView.Adapter<RamadanAdapter.ViewHolder>() {
 
     private val sdf = SimpleDateFormat("EEEE", Locale("bn", "BD"))
+    private val sdfDate = SimpleDateFormat("dd-MM-yyyy", Locale("bn", "BD"))
 
     inner class ViewHolder(val binding: ItemRamadanTimeBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -27,7 +28,6 @@ class RamadanAdapter(private val models: List<Ramadan>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.tvCount.text = Utils.showNumberInBangla(position + 1)
-        holder.binding.tvDate.text = models[position].date
         holder.binding.tvSahriTime.text = models[position].sahriTime.substringBefore(" AM")
         holder.binding.tvIftarTime.text = models[position].iftarTime.substringBefore(" PM")
 
@@ -40,8 +40,10 @@ class RamadanAdapter(private val models: List<Ramadan>) :
 
         if (date != null) {
             holder.binding.tvDay.text = sdf.format(date)
+            holder.binding.tvDate.text = sdfDate.format(date)
         } else {
             holder.binding.tvDay.text = models[position].date
+            holder.binding.tvDate.text = models[position].date
         }
     }
 

@@ -26,7 +26,6 @@
         android:paddingRight="25dp"
         android:paddingBottom="35dp"
         android:textColor="@color/black"
-        android:textSize="18sp"
         tools:text="Title" />
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.shahcement.tawfiq.fragment
 
+import android.graphics.Color
 import android.os.Bundle
 import android.text.format.DateFormat
 import androidx.fragment.app.Fragment
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.shahcement.tawfiq.AppConstants
 import com.shahcement.tawfiq.R
@@ -77,6 +79,7 @@ class RamadanFragment : Fragment() {
         binding.spinnerDistrict.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    (p0?.getChildAt(0) as TextView).setTextColor(Color.BLACK)
                     PreferenceHelper.put(PrefConstants.SELECTED_DISTRICT_POS, p2)
                     getRamadanData()
                 }

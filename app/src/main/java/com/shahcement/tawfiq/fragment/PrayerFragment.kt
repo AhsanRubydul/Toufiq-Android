@@ -1,22 +1,24 @@
 package com.shahcement.tawfiq.fragment
 
+import android.graphics.Color
 import android.os.Bundle
 import android.text.format.DateFormat
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.shahcement.tawfiq.AppConstants
 import com.shahcement.tawfiq.R
 import com.shahcement.tawfiq.adapter.PrayerAdapter
-import com.shahcement.tawfiq.databinding.FragmentPrayerBinding
 import com.shahcement.tawfiq.data.db.DataRepository
 import com.shahcement.tawfiq.data.db.entity.District
 import com.shahcement.tawfiq.data.preference.PrefConstants
 import com.shahcement.tawfiq.data.preference.PreferenceHelper
+import com.shahcement.tawfiq.databinding.FragmentPrayerBinding
 import com.shahcement.tawfiq.model.Prayer
 import java.text.SimpleDateFormat
 import java.util.*
@@ -60,7 +62,12 @@ class PrayerFragment : Fragment() {
         binding.tvDate.text = sdf.format(Date()).toString()
 
         binding.spinnerDistrict.adapter = districtAdapter
-        binding.spinnerDistrict.setSelection(PreferenceHelper.getInt(PrefConstants.SELECTED_DISTRICT_POS, 0))
+        binding.spinnerDistrict.setSelection(
+            PreferenceHelper.getInt(
+                PrefConstants.SELECTED_DISTRICT_POS,
+                0
+            )
+        )
 
         // get districts
         districts.addAll(DataRepository.getInstance().getDistricts())
@@ -76,6 +83,7 @@ class PrayerFragment : Fragment() {
         binding.spinnerDistrict.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    (p0?.getChildAt(0) as TextView).setTextColor(Color.BLACK)
                     PreferenceHelper.put(PrefConstants.SELECTED_DISTRICT_POS, p2)
                     getWaktData()
                 }

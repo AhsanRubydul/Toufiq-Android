@@ -2,9 +2,7 @@ package com.shahcement.tawfiq.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
 import com.github.barteksc.pdfviewer.util.FitPolicy
-import com.shahcement.tawfiq.R
 import com.shahcement.tawfiq.databinding.ActivityPdfViewerBinding
 
 class PdfViewerActivity : AppCompatActivity() {
@@ -19,14 +17,11 @@ class PdfViewerActivity : AppCompatActivity() {
 
         intent?.extras?.let {
             val file = it.getString("file", null)
+
             file?.let { assetName ->
-                binding.pdfView.fromAsset(assetName)
-                    .scrollHandle(DefaultScrollHandle(this))
+                binding.pdfView.fromAsset("$assetName.pdf")
                     .defaultPage(0)
                     .pageFitPolicy(FitPolicy.WIDTH)
-                    .onPageChange { page, _ ->
-
-                    }
                     .load()
             }
         }
