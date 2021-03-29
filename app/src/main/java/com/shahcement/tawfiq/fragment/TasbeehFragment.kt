@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.shahcement.tawfiq.AppConstants
+import com.shahcement.tawfiq.Utils
+import com.shahcement.tawfiq.data.preference.PrefConstants
+import com.shahcement.tawfiq.data.preference.PreferenceHelper
 import com.shahcement.tawfiq.databinding.FragmentTasbeehBinding
 
 
@@ -25,17 +29,23 @@ class TasbeehFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.tvCounter.text = count.toString()
+        count = PreferenceHelper.getInt(PrefConstants.TASBEEH_COUNT, 0)
+        showCount(count)
 
         binding.ivCounter.setOnClickListener {
             count++
-            binding.tvCounter.text = count.toString()
+            showCount(count)
         }
 
         binding.lytReset.setOnClickListener {
             count = 0
-            binding.tvCounter.text = count.toString()
+            showCount(count)
         }
+    }
+
+    private fun showCount(count : Int) {
+        binding.tvCounter.text = Utils.showNumberInBangla(count)
+        PreferenceHelper.put(PrefConstants.TASBEEH_COUNT, count)
     }
 
     override fun onDestroyView() {

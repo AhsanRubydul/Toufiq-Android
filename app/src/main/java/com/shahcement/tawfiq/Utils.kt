@@ -3,6 +3,8 @@ package com.shahcement.tawfiq
 import android.content.res.AssetManager
 import java.io.IOException
 import java.nio.charset.Charset
+import java.text.NumberFormat
+import java.util.*
 
 object Utils {
     fun loadJSONFromAsset(assetManager: AssetManager, fileName: String): String? {
@@ -17,5 +19,10 @@ object Utils {
             ex.printStackTrace()
             return null
         }
+    }
+
+    fun showNumberInBangla(x: Int): String? {
+        val numberFormatter = NumberFormat.getNumberInstance(Locale("bn", "BD"))
+        return numberFormatter.format(x.toLong())
     }
 }

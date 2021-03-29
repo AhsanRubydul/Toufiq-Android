@@ -3,6 +3,7 @@ package com.shahcement.tawfiq.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.shahcement.tawfiq.Utils
 import com.shahcement.tawfiq.data.db.entity.Ramadan
 import com.shahcement.tawfiq.databinding.ItemRamadanTimeBinding
 import java.text.ParseException
@@ -25,7 +26,7 @@ class RamadanAdapter(private val models: List<Ramadan>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.tvCount.text = (position + 1).toString()
+        holder.binding.tvCount.text = Utils.showNumberInBangla(position + 1)
         holder.binding.tvDate.text = models[position].date
         holder.binding.tvSahriTime.text = models[position].sahriTime.substringBefore(" AM")
         holder.binding.tvIftarTime.text = models[position].iftarTime.substringBefore(" PM")
