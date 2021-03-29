@@ -1,7 +1,11 @@
 package com.shahcement.tawfiq.activity
 
+import android.content.Context
+import android.hardware.Sensor
+import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.shahcement.tawfiq.AppConstants
 import com.shahcement.tawfiq.databinding.ActivityContainerBinding
 import com.shahcement.tawfiq.fragment.*
@@ -44,9 +48,18 @@ class ContainerActivity : AppCompatActivity() {
                     .commit()
             }
             AppConstants.QIBLA -> {
-                supportFragmentManager.beginTransaction()
-                    .replace(binding.fragmentContainer.id, QiblaFragment())
-                    .commit()
+                val sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+                val accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+                val magnetometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
+
+                if (accelerometerSensor != null && magnetometerSensor != null) {
+                    supportFragmentManager.beginTransaction()
+                        .replace(binding.fragmentContainer.id, QiblaFragment())
+                        .commit()
+                } else {
+                    Toast.makeText(this, "কম্পাস সেনসর নেই", Toast.LENGTH_SHORT).show()
+                    finish()
+                }
             }
         }
     }
