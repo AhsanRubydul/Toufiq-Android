@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.shahcement.tawfiq.databinding.ItemFooterBinding
-import com.shahcement.tawfiq.databinding.ItemViewBinding
+import com.shahcement.tawfiq.databinding.ItemSuraDuaBinding
 import com.shahcement.tawfiq.model.CommonModel
 
 class CommonAdapter(private val models: List<CommonModel>) :
@@ -15,13 +15,13 @@ class CommonAdapter(private val models: List<CommonModel>) :
         private const val TYPE_FOOTER = 1
     }
 
-    inner class ViewHolder(val binding: ItemViewBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class ViewHolder(val binding: ItemSuraDuaBinding) : RecyclerView.ViewHolder(binding.root)
 
     inner class FooterHolder(binding: ItemFooterBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == TYPE_VIEW) {
-            val binding = ItemViewBinding
+            val binding = ItemSuraDuaBinding
                 .inflate(LayoutInflater.from(parent.context), parent, false)
             ViewHolder(binding)
         } else {

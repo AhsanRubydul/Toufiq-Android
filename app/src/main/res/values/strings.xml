@@ -8,8 +8,13 @@
     <string name="tasbeeh_count">তসবীহ গননা</string>
     <string name="qibla">কিবলা</string>
 
-    <string name="source_string">সূত্রঃ\nআল-কুরআনুল-কারিম\nসম্পাদনা পরিষদ, ইসলামিক ফাউন্ডেশন</string>
+    <string name="ramadan">রমজান</string>
+    <string name="date">তারিখ</string>
+    <string name="day">দিন</string>
+    <string name="sahri_time">সেহরির\nসময়</string>
+    <string name="iftar_time">ইফতারের\nসময়</string>
 
+    <string name="source_string">সূত্রঃ\nআল-কুরআনুল-কারিম\nসম্পাদনা পরিষদ, ইসলামিক ফাউন্ডেশন</string>
 
     <string name="select_district">জেলা নির্বাচন করুন</string>
 </resources>
