@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name="com.shahcement.tawfiq.activity.PdfViewerActivity"/>
+        <activity android:name="com.shahcement.tawfiq.activity.PdfViewerActivity" />
         <activity
             android:name="com.shahcement.tawfiq.activity.ContainerActivity"
             android:screenOrientation="portrait" />
