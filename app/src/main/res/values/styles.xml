@@ -32,4 +32,8 @@
         <item name="android:textSize">25sp</item>
     </style>
 
+    <style name="ToolbarColoredBackArrow" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/shah_cement_red</item>
+    </style>
+
 </resources>

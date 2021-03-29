@@ -16,6 +16,12 @@ class ContainerActivity : AppCompatActivity() {
         binding = ActivityContainerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        title = ""
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
         when (intent?.extras?.getInt("view_id", -1)) {
             AppConstants.PRAYER -> {
                 supportFragmentManager.beginTransaction()
@@ -43,5 +49,10 @@ class ContainerActivity : AppCompatActivity() {
                     .commit()
             }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return super.onSupportNavigateUp()
     }
 }
