@@ -20,9 +20,13 @@ import com.shahcement.tawfiq.data.preference.PrefConstants
 import com.shahcement.tawfiq.data.preference.PreferenceHelper
 import com.shahcement.tawfiq.databinding.FragmentRamadanBinding
 import com.shahcement.tawfiq.model.Prayer
+import java.text.ParseException
+import java.text.SimpleDateFormat
 import java.util.*
 
 class RamadanFragment : Fragment() {
+
+    private val sdf = SimpleDateFormat("dd-MM-yyyy", Locale("bn", "BD"))
 
     private val districts: MutableList<District> = mutableListOf()
     private lateinit var districtAdapter: ArrayAdapter<District>
@@ -89,8 +93,26 @@ class RamadanFragment : Fragment() {
             if (binding.spinnerDistrict.selectedItemPosition == -1) 0 else binding.spinnerDistrict.selectedItemPosition
 
         val todaysRamadan = DataRepository.getInstance().getRamadanTime(
-            districts[selectedId].district_id, DateFormat.format("yyyy-MM-dd", Date()).toString()
+            districts[selectedId].district_id, "2021-04-14"
         )
+
+        todaysRamadan?.let {
+            binding.tvIftarTime.text = it.iftarTime.substringBefore(" PM")
+            binding.tvSahriTime.text = it.sahriTime.substringBefore(" AM")
+
+            val format = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
+            val date = try {
+                format.parse(it.date)
+            } catch (e: ParseException) {
+                e.printStackTrace()
+            }
+
+            if (date != null) {
+                binding.tvToday.text = getString(R.string.todays_schedule, sdf.format(date))
+            } else {
+                binding.tvToday.text = getString(R.string.todays_schedule, it.date)
+            }
+        }
 
         ramadans.clear()
         ramadanAdapter.notifyDataSetChanged()
