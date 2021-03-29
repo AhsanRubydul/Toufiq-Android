@@ -1,5 +1,6 @@
 package com.shahcement.tawfiq.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.shahcement.tawfiq.Utils
+import com.shahcement.tawfiq.activity.PdfViewerActivity
 import com.shahcement.tawfiq.adapter.CommonAdapter
 import com.shahcement.tawfiq.databinding.FragmentSuraBinding
 import com.shahcement.tawfiq.model.CommonModel
@@ -38,6 +40,15 @@ class SuraFragment : Fragment() {
         binding.recyclerView.adapter = adapter
 
         parseData()
+
+        adapter.setOnClickListener(object : CommonAdapter.OnClickListener {
+            override fun onClick(position: Int) {
+                startActivity(
+                    Intent(requireContext(), PdfViewerActivity::class.java)
+                        .putExtra("file", models[position].file)
+                )
+            }
+        })
     }
 
     private fun parseData() {
@@ -46,7 +57,7 @@ class SuraFragment : Fragment() {
                 val array = JSONArray(it)
                 for (i in 0 until array.length()) {
                     val obj = array.getJSONObject(i)
-                    models.add(CommonModel(obj.getString("sura")))
+                    models.add(CommonModel(obj.getString("sura"), obj.getString("file")))
                 }
             } catch (e: JSONException) {
                 e.printStackTrace()

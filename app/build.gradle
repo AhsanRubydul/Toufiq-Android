@@ -57,4 +57,6 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.2.6'
     kapt 'androidx.room:room-compiler:2.2.6'
 
+    // PdfViewer
+    implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
 }

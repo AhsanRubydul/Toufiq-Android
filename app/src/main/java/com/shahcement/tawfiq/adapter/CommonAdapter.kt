@@ -10,12 +10,23 @@ import com.shahcement.tawfiq.model.CommonModel
 class CommonAdapter(private val models: List<CommonModel>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    interface OnClickListener {
+        fun onClick(position: Int)
+    }
+
     companion object {
         private const val TYPE_VIEW = 0
         private const val TYPE_FOOTER = 1
     }
 
-    inner class ViewHolder(val binding: ItemSuraDuaBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class ViewHolder(val binding: ItemSuraDuaBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        init {
+            itemView.setOnClickListener {
+                onClickListener?.onClick(adapterPosition)
+            }
+        }
+    }
 
     inner class FooterHolder(binding: ItemFooterBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -47,5 +58,11 @@ class CommonAdapter(private val models: List<CommonModel>) :
         } else {
             TYPE_VIEW
         }
+    }
+
+    private var onClickListener: OnClickListener? = null
+
+    fun setOnClickListener(onClickListener: OnClickListener) {
+        this.onClickListener = onClickListener
     }
 }
