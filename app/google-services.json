@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "220016977130",
+    "project_id": "toufik-5a92e",
+    "storage_bucket": "toufik-5a92e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:220016977130:android:2e66ed5ae4d86a07396393",
+        "android_client_info": {
+          "package_name": "com.shahcement.tawfiq"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "220016977130-jue5go8nbjirslig1418hkv19adlqk97.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1Yu9OYKIQ5gTXLr756H47x6lYOsW1qZw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "220016977130-jue5go8nbjirslig1418hkv19adlqk97.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "220016977130-6vn5mqm25eaunqnngq3are8a1bfhh1su.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "funlab.toufik"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
