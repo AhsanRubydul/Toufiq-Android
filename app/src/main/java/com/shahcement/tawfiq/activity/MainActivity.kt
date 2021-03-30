@@ -2,7 +2,6 @@ package com.shahcement.tawfiq.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.ktx.Firebase
@@ -12,10 +11,6 @@ import com.shahcement.tawfiq.AppConstants
 import com.shahcement.tawfiq.databinding.ActivityMainBinding
 import com.shahcement.tawfiq.fragment.PrayerFragment
 import com.shahcement.tawfiq.fragment.RamadanFragment
-import java.text.ParseException
-import java.text.SimpleDateFormat
-import java.util.*
-import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
@@ -47,14 +42,14 @@ class MainActivity : AppCompatActivity() {
 
         remoteConfig.fetchAndActivate()
             .addOnCompleteListener(this) {
-                val isRamadan = true
-//                val isRamadan = remoteConfig.getBoolean("show_ramadan_gui")
-                
+                val isRamadan = remoteConfig.getBoolean("show_ramadan_gui")
                 initView(isRamadan)
             }
     }
 
     private fun initView(isRamadan: Boolean) {
+        binding.progressBar.visibility = View.GONE
+
         if (isRamadan) {
             binding.headerTabs.lytPrayer.visibility = View.VISIBLE
 

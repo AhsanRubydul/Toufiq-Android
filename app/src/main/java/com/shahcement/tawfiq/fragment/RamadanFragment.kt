@@ -28,6 +28,7 @@ import java.util.*
 class RamadanFragment : Fragment() {
 
     private val sdf = SimpleDateFormat("dd-MM-yyyy", Locale("bn", "BD"))
+    private var todaysRamadanPosition = 0
 
     private val districts: MutableList<District> = mutableListOf()
     private lateinit var districtAdapter: ArrayAdapter<District>
@@ -134,9 +135,15 @@ class RamadanFragment : Fragment() {
                     val endDate = format.parse(end)
 
                     if (startDate != null && endDate != null) {
-                        DataRepository.getInstance().getAllRamadanTime(districts[selectedId].district_id).forEach {
+                        DataRepository.getInstance()
+                            .getAllRamadanTime(districts[selectedId].district_id).forEach {
                             if (isValidDate(it.date, startDate, endDate)) {
                                 list.add(it)
+
+                                // checking if this is today
+                                if (DateFormat.format("yyyy-MM-dd", Date()).toString() == it.date) {
+                                    todaysRamadanPosition = list.size - 1
+                                }
                             }
                         }
                     }
@@ -144,18 +151,20 @@ class RamadanFragment : Fragment() {
                     e.printStackTrace()
                 }
 
-                ramadans.addAll( if (list.isNotEmpty()) {
-                    list
-                } else
-                    DataRepository.getInstance().getAllRamadanTime(districts[selectedId].district_id)
+                ramadans.addAll(
+                    if (list.isNotEmpty()) {
+                        list
+                    } else
+                        DataRepository.getInstance()
+                            .getAllRamadanTime(districts[selectedId].district_id)
                 )
 
                 ramadanAdapter.notifyDataSetChanged()
-                binding.progressBar.visibility = View.GONE
+                binding.rvRamadanTimes.scrollToPosition(todaysRamadanPosition)
             }
     }
 
-    private fun isValidDate(date: String, startDate : Date, endDate: Date): Boolean {
+    private fun isValidDate(date: String, startDate: Date, endDate: Date): Boolean {
         val format = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
         val dt = format.parse(date)
         return try {
