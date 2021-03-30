@@ -21,7 +21,11 @@ class PrayerAdapter(private val models: List<Prayer>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.tvTitle.text = models[position].title
-        holder.binding.tvTime.text = models[position].time
+        holder.binding.tvTime.text = if (models[position].time.contains("am", true)) {
+            models[position].time.substringBefore(" AM")
+        } else {
+            models[position].time.substringBefore(" PM")
+        }
         holder.binding.ivPrayer.setImageResource(models[position].image)
     }
 

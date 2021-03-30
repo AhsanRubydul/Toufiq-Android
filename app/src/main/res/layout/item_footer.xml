@@ -8,9 +8,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:fontFamily="@font/nirmala"
+        android:fontFamily="@font/kongsho"
         android:gravity="center"
-        android:lineSpacingMultiplier="1.2"
+        android:lineSpacingMultiplier="2"
         android:text="@string/source_string"
         android:textColor="@color/black" />
 

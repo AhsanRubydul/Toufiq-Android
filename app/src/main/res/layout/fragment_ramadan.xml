@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
+            android:fontFamily="@font/siam_rupali"
             android:text="@string/select_district"
             android:textColor="@color/black" />
 
@@ -75,6 +76,7 @@
             android:id="@+id/tvToday"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/siam_rupali"
             android:gravity="center"
             android:padding="10dp"
             android:textColor="@color/black"
@@ -118,6 +120,7 @@
                     android:id="@+id/tvSahriTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/siam_rupali"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     tools:text="6:05 AM" />
@@ -153,6 +156,7 @@
                     android:id="@+id/tvIftarTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/siam_rupali"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     tools:text="6:05 AM" />
@@ -187,6 +191,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight=".3"
+                android:fontFamily="@font/siam_rupali"
                 android:gravity="center"
                 android:text="@string/ramadan"
                 android:textColor="@color/white" />
@@ -196,6 +201,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".7"
+                android:fontFamily="@font/siam_rupali"
                 android:gravity="center"
                 android:text="@string/date"
                 android:textColor="@color/white" />
@@ -205,6 +211,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".7"
+                android:fontFamily="@font/siam_rupali"
                 android:gravity="center"
                 android:text="@string/day"
                 android:textColor="@color/white" />
@@ -213,6 +220,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/siam_rupali"
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="@string/sahri_time"
@@ -222,6 +230,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/siam_rupali"
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="@string/iftar_time"

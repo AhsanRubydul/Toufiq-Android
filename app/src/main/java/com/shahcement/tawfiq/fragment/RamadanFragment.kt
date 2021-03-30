@@ -96,7 +96,7 @@ class RamadanFragment : Fragment() {
             if (binding.spinnerDistrict.selectedItemPosition == -1) 0 else binding.spinnerDistrict.selectedItemPosition
 
         val todaysRamadan = DataRepository.getInstance().getRamadanTime(
-            districts[selectedId].district_id, DateFormat.format("yyyy-MM-dd", Date()).toString()
+            districts[selectedId].district_id, "2021-04-14"
         )
 
         todaysRamadan?.let {
