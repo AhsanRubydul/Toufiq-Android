@@ -11,9 +11,9 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.shahcement.tawfiq.AppConstants
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.shahcement.tawfiq.R
-import com.shahcement.tawfiq.adapter.PrayerAdapter
 import com.shahcement.tawfiq.adapter.RamadanAdapter
 import com.shahcement.tawfiq.data.db.DataRepository
 import com.shahcement.tawfiq.data.db.entity.District
@@ -21,7 +21,6 @@ import com.shahcement.tawfiq.data.db.entity.Ramadan
 import com.shahcement.tawfiq.data.preference.PrefConstants
 import com.shahcement.tawfiq.data.preference.PreferenceHelper
 import com.shahcement.tawfiq.databinding.FragmentRamadanBinding
-import com.shahcement.tawfiq.model.Prayer
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -63,7 +62,12 @@ class RamadanFragment : Fragment() {
 
     private fun initView() {
         binding.spinnerDistrict.adapter = districtAdapter
-        binding.spinnerDistrict.setSelection(PreferenceHelper.getInt(PrefConstants.SELECTED_DISTRICT_POS, 0))
+        binding.spinnerDistrict.setSelection(
+            PreferenceHelper.getInt(
+                PrefConstants.SELECTED_DISTRICT_POS,
+                0
+            )
+        )
 
         // get districts
         districts.addAll(DataRepository.getInstance().getDistricts())
@@ -96,7 +100,7 @@ class RamadanFragment : Fragment() {
             if (binding.spinnerDistrict.selectedItemPosition == -1) 0 else binding.spinnerDistrict.selectedItemPosition
 
         val todaysRamadan = DataRepository.getInstance().getRamadanTime(
-            districts[selectedId].district_id, "2021-04-14"
+            districts[selectedId].district_id, DateFormat.format("yyyy-MM-dd", Date()).toString()
         )
 
         todaysRamadan?.let {
@@ -120,8 +124,52 @@ class RamadanFragment : Fragment() {
         ramadans.clear()
         ramadanAdapter.notifyDataSetChanged()
 
-        ramadans.addAll(DataRepository.getInstance().getAllRamadanTime(districts[selectedId].district_id))
-        ramadanAdapter.notifyDataSetChanged()
+        val list = mutableListOf<Ramadan>()
+
+        val remoteConfig = Firebase.remoteConfig
+
+        remoteConfig.fetchAndActivate()
+            .addOnCompleteListener(requireActivity()) {
+
+                val start = remoteConfig.getString("ramadan_start_date")
+                val end = remoteConfig.getString("ramadan_end_date")
+
+                val format = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
+                try {
+                    val startDate = format.parse(start)
+                    val endDate = format.parse(end)
+
+                    if (startDate != null && endDate != null) {
+                        DataRepository.getInstance().getAllRamadanTime(districts[selectedId].district_id).forEach {
+                            if (isValidDate(it.date, startDate, endDate)) {
+                                list.add(it)
+                            }
+                        }
+                    }
+                } catch (e: ParseException) {
+                    e.printStackTrace()
+                }
+
+                ramadans.addAll( if (list.isNotEmpty()) {
+                    list
+                } else
+                    DataRepository.getInstance().getAllRamadanTime(districts[selectedId].district_id)
+                )
+
+                ramadanAdapter.notifyDataSetChanged()
+                binding.progressBar.visibility = View.GONE
+            }
+    }
+
+    private fun isValidDate(date: String, startDate : Date, endDate: Date): Boolean {
+        val format = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
+        val dt = format.parse(date)
+        return try {
+            (dt.equals(startDate) || dt.after(startDate)) // is startDate or after startDate
+                    && (dt.equals(endDate) || dt.before(endDate)) // is endDate or before endDate
+        } catch (e: ParseException) {
+            false
+        }
     }
 
     override fun onDestroyView() {

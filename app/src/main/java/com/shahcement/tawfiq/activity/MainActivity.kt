@@ -49,25 +49,7 @@ class MainActivity : AppCompatActivity() {
             .addOnCompleteListener(this) {
                 val isRamadan = true
 //                val isRamadan = remoteConfig.getBoolean("show_ramadan_gui")
-
-                if (isRamadan) {
-                    val start = remoteConfig.getString("ramadan_start_date")
-                    val end = remoteConfig.getString("ramadan_end_date")
-
-                    val format = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
-                    try {
-                        val startDate = format.parse(start)
-                        val endDate = format.parse(end)
-
-                        val diff: Long = endDate.time - startDate.time
-                        val days = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS) + 1
-
-                    } catch (e: ParseException) {
-                        e.printStackTrace()
-                    }
-                }
-
-
+                
                 initView(isRamadan)
             }
     }

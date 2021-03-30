@@ -35,7 +35,7 @@ class RamadanAdapter(private val models: List<Ramadan>) :
         val date = try {
             format.parse(models[position].date)
         } catch (e: ParseException) {
-            e.printStackTrace()
+            null
         }
 
         if (date != null) {
