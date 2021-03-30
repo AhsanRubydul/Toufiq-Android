@@ -62,12 +62,6 @@ class RamadanFragment : Fragment() {
 
     private fun initView() {
         binding.spinnerDistrict.adapter = districtAdapter
-        binding.spinnerDistrict.setSelection(
-            PreferenceHelper.getInt(
-                PrefConstants.SELECTED_DISTRICT_POS,
-                0
-            )
-        )
 
         // get districts
         districts.addAll(DataRepository.getInstance().getDistricts())
@@ -170,6 +164,16 @@ class RamadanFragment : Fragment() {
         } catch (e: ParseException) {
             false
         }
+    }
+
+    override fun onResume() {
+        binding.spinnerDistrict.setSelection(
+            PreferenceHelper.getInt(
+                PrefConstants.SELECTED_DISTRICT_POS,
+                0
+            )
+        )
+        super.onResume()
     }
 
     override fun onDestroyView() {
