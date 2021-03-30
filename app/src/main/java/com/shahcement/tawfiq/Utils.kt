@@ -21,8 +21,22 @@ object Utils {
         }
     }
 
-    fun showNumberInBangla(x: Int): String? {
-        val numberFormatter = NumberFormat.getNumberInstance(Locale("bn", "BD"))
-        return numberFormatter.format(x.toLong())
+    fun showNumberInBangla(x: Int): String {
+        val strBuilder = StringBuilder()
+        val enBnDiff = 2486
+
+        x.toString().forEach { letter ->
+            try {
+                if (letter.toInt() in 48..57) {
+                    val replacementLetterCode = letter.toInt() + enBnDiff
+                    strBuilder.append(replacementLetterCode.toChar())
+                } else {
+                    strBuilder.append(letter)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+        return strBuilder.toString()
     }
 }

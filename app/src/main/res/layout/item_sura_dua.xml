@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:fontFamily="@font/nirmala"
+        android:fontFamily="@font/siam_rupali"
         android:paddingStart="35dp"
         android:paddingLeft="35dp"
         android:paddingTop="25dp"
