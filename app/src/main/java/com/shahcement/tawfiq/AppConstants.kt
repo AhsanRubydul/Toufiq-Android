@@ -10,6 +10,6 @@ object AppConstants {
     const val FAZAR = "ফজর"
     const val ZOHAR = "যোহর"
     const val ASR = "আছর"
-    const val MAGHRIB = "মাগরিব"
+    const val MAGHRIB = "মাগরীব"
     const val ISHA = "এশা"
 }
