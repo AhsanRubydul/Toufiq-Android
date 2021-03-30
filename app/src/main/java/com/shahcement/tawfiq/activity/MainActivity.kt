@@ -1,13 +1,11 @@
 package com.shahcement.tawfiq.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import com.shahcement.tawfiq.AppConstants
@@ -17,6 +15,7 @@ import com.shahcement.tawfiq.fragment.RamadanFragment
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         remoteConfig.setConfigSettingsAsync(configSettings)
 
         val defaultData = mutableMapOf<String, Any>()
+        defaultData["show_ramadan_gui"] = true
         defaultData["ramadan_start_date"] = "2021-04-15"
         defaultData["ramadan_end_date"] = "2021-05-13"
 
@@ -47,25 +47,28 @@ class MainActivity : AppCompatActivity() {
 
         remoteConfig.fetchAndActivate()
             .addOnCompleteListener(this) {
-                val start = remoteConfig.getString("ramadan_start_date")
-                val end = remoteConfig.getString("ramadan_end_date")
+                val isRamadan = true
+//                val isRamadan = remoteConfig.getBoolean("show_ramadan_gui")
 
-                val format = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
-                try {
-                    val startDate = format.parse(start)
-                    val endDate = format.parse(end)
+                if (isRamadan) {
+                    val start = remoteConfig.getString("ramadan_start_date")
+                    val end = remoteConfig.getString("ramadan_end_date")
 
-                    val isRamadan = if (startDate != null && endDate != null) {
-                        startDate.equals(Date()) || startDate.before(Date()) && endDate.before(Date())
-                    } else {
-                        false
+                    val format = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
+                    try {
+                        val startDate = format.parse(start)
+                        val endDate = format.parse(end)
+
+                        val diff: Long = endDate.time - startDate.time
+                        val days = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS) + 1
+
+                    } catch (e: ParseException) {
+                        e.printStackTrace()
                     }
-
-                    initView(isRamadan)
-
-                } catch (e: ParseException) {
-                    e.printStackTrace()
                 }
+
+
+                initView(isRamadan)
             }
     }
 
