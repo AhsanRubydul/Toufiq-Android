@@ -15,6 +15,12 @@ class PdfViewerActivity : AppCompatActivity() {
         binding = ActivityPdfViewerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        title = ""
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
         intent?.extras?.let {
             val file = it.getString("file", null)
 
@@ -25,5 +31,10 @@ class PdfViewerActivity : AppCompatActivity() {
                     .load()
             }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return super.onSupportNavigateUp()
     }
 }
