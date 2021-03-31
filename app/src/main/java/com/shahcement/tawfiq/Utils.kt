@@ -3,8 +3,6 @@ package com.shahcement.tawfiq
 import android.content.res.AssetManager
 import java.io.IOException
 import java.nio.charset.Charset
-import java.text.NumberFormat
-import java.util.*
 
 object Utils {
     fun loadJSONFromAsset(assetManager: AssetManager, fileName: String): String? {

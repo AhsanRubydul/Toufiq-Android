@@ -1,254 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_app"
+    android:orientation="vertical"
     tools:context=".fragment.RamadanFragment">
+
+    <TextView
+        android:id="@+id/tvHeader"
+        style="@style/TitleTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ramadan_times" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/tvHeader"
-            style="@style/TitleTextStyle"
-            android:layout_width="match_parent"
+            android:id="@+id/tvSelectDistrict"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ramadan_times" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tvSelectDistrict"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:fontFamily="@font/siam_rupali"
-                android:text="@string/select_district"
-                android:textColor="@color/black" />
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/spinnerDistrict"
-                    android:layout_alignLeft="@+id/spinnerDistrict"
-                    android:layout_alignTop="@+id/spinnerDistrict"
-                    android:layout_alignEnd="@+id/spinnerDistrict"
-                    android:layout_alignRight="@+id/spinnerDistrict"
-                    android:layout_alignBottom="@+id/spinnerDistrict"
-                    android:contentDescription="@null"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/bg_spinner" />
-
-                <Spinner
-                    android:id="@+id/spinnerDistrict"
-                    android:layout_width="200dp"
-                    android:layout_height="80dp"
-                    android:background="@null"
-                    android:paddingStart="20dp"
-                    android:paddingLeft="20dp"
-                    android:paddingEnd="20dp"
-                    android:paddingRight="20dp"
-                    android:paddingBottom="10dp" />
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            app:cardBackgroundColor="#F4F4F4"
-            app:cardCornerRadius="4dp"
-            app:cardElevation="4dp">
-
-            <TextView
-                android:id="@+id/tvToday"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/siam_rupali"
-                android:gravity="center"
-                android:padding="10dp"
-                android:textColor="@color/black"
-                tools:text="Todays schedule" />
-
-        </androidx.cardview.widget.CardView>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="40dp"
-            android:orientation="horizontal">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="@color/shah_cement_red"
-                app:cardCornerRadius="4dp"
-                app:cardElevation="4dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@null"
-                        android:src="@drawable/img_sahri_time" />
-
-                    <TextView
-                        android:id="@+id/tvSahriTime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/siam_rupali"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        tools:text="6:05 AM" />
-
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:cardBackgroundColor="@color/shah_cement_red"
-                app:cardCornerRadius="4dp"
-                app:cardElevation="4dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@null"
-                        android:src="@drawable/img_iftar_time" />
-
-                    <TextView
-                        android:id="@+id/tvIftarTime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/siam_rupali"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        tools:text="6:05 AM" />
-
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
-            app:cardBackgroundColor="@color/shah_cement_red"
-            app:cardCornerRadius="6dp"
-            app:cardElevation="10dp">
+            android:fontFamily="@font/siam_rupali"
+            android:text="@string/select_district"
+            android:textColor="@color/black" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingTop="2dp"
-                android:paddingBottom="2dp">
+                android:layout_alignStart="@+id/spinnerDistrict"
+                android:layout_alignLeft="@+id/spinnerDistrict"
+                android:layout_alignTop="@+id/spinnerDistrict"
+                android:layout_alignEnd="@+id/spinnerDistrict"
+                android:layout_alignRight="@+id/spinnerDistrict"
+                android:layout_alignBottom="@+id/spinnerDistrict"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/bg_spinner" />
 
-                <TextView
-                    android:id="@+id/tvCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".3"
-                    android:fontFamily="@font/siam_rupali"
-                    android:gravity="center"
-                    android:text="@string/ramadan"
-                    android:textColor="@color/white" />
+            <Spinner
+                android:id="@+id/spinnerDistrict"
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:background="@null"
+                android:paddingStart="20dp"
+                android:paddingLeft="20dp"
+                android:paddingEnd="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="10dp" />
 
-                <TextView
-                    android:id="@+id/tvDate"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".7"
-                    android:fontFamily="@font/siam_rupali"
-                    android:gravity="center"
-                    android:text="@string/date"
-                    android:textColor="@color/white" />
-
-                <TextView
-                    android:id="@+id/tvDay"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".7"
-                    android:fontFamily="@font/siam_rupali"
-                    android:gravity="center"
-                    android:text="@string/day"
-                    android:textColor="@color/white" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/siam_rupali"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="@string/sahri_time"
-                    android:textColor="@color/white" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/siam_rupali"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="@string/iftar_time"
-                    android:textColor="@color/white" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvRamadanTimes"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        </RelativeLayout>
 
     </LinearLayout>
 
-</androidx.core.widget.NestedScrollView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        app:cardBackgroundColor="#F4F4F4"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp">
+
+        <TextView
+            android:id="@+id/tvToday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/siam_rupali"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            tools:text="Todays schedule" />
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="40dp"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@color/shah_cement_red"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@null"
+                    android:src="@drawable/img_sahri_time" />
+
+                <TextView
+                    android:id="@+id/tvSahriTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/siam_rupali"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    tools:text="6:05 AM" />
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@color/shah_cement_red"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@null"
+                    android:src="@drawable/img_iftar_time" />
+
+                <TextView
+                    android:id="@+id/tvIftarTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/siam_rupali"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    tools:text="6:05 AM" />
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        app:cardBackgroundColor="@color/shah_cement_red"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp">
+
+            <TextView
+                android:id="@+id/tvCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".3"
+                android:fontFamily="@font/siam_rupali"
+                android:gravity="center"
+                android:text="@string/ramadan"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".7"
+                android:fontFamily="@font/siam_rupali"
+                android:gravity="center"
+                android:text="@string/date"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tvDay"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".7"
+                android:fontFamily="@font/siam_rupali"
+                android:gravity="center"
+                android:text="@string/day"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/siam_rupali"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="@string/sahri_time"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/siam_rupali"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="@string/iftar_time"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRamadanTimes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
