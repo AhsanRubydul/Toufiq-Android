@@ -34,17 +34,17 @@ class MainActivity : AppCompatActivity() {
         remoteConfig.setConfigSettingsAsync(configSettings)
 
         val defaultData = mutableMapOf<String, Any>()
-        defaultData["show_ramadan_gui"] = true
-        defaultData["ramadan_start_date"] = "2021-04-15"
+        defaultData["show_ramadan_gui"] = false
+        defaultData["ramadan_start_date"] = "2021-04-14"
         defaultData["ramadan_end_date"] = "2021-05-13"
 
         remoteConfig.setDefaultsAsync(defaultData)
 
         remoteConfig.fetchAndActivate()
-            .addOnCompleteListener(this) {
-                val isRamadan = remoteConfig.getBoolean("show_ramadan_gui")
-                initView(isRamadan)
-            }
+                .addOnCompleteListener(this) {
+                    val isRamadan = remoteConfig.getBoolean("show_ramadan_gui")
+                    initView(isRamadan)
+                }
     }
 
     private fun initView(isRamadan: Boolean) {
@@ -54,14 +54,14 @@ class MainActivity : AppCompatActivity() {
             binding.headerTabs.lytPrayer.visibility = View.VISIBLE
 
             supportFragmentManager.beginTransaction()
-                .replace(binding.fragmentContainer.id, RamadanFragment())
-                .commit()
+                    .replace(binding.fragmentContainer.id, RamadanFragment())
+                    .commit()
         } else {
             binding.headerTabs.lytPrayer.visibility = View.GONE
 
             supportFragmentManager.beginTransaction()
-                .replace(binding.fragmentContainer.id, PrayerFragment())
-                .commit()
+                    .replace(binding.fragmentContainer.id, PrayerFragment())
+                    .commit()
         }
     }
 
@@ -89,8 +89,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun startContainerActivity(id: Int) {
         startActivity(
-            Intent(this, ContainerActivity::class.java)
-                .putExtra("view_id", id)
+                Intent(this, ContainerActivity::class.java)
+                        .putExtra("view_id", id)
         )
     }
 }
