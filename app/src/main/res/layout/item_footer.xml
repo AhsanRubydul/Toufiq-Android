@@ -10,7 +10,7 @@
         android:layout_gravity="center"
         android:fontFamily="@font/kongsho"
         android:gravity="center"
-        android:lineSpacingMultiplier="2"
+        android:lineSpacingMultiplier="1"
         android:text="@string/source_string"
         android:textColor="@color/black" />
 
