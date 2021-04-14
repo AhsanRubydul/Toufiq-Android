@@ -11,7 +11,7 @@
     <string name="ramadan">রমজান</string>
     <string name="date">তারিখ</string>
     <string name="day">দিন</string>
-    <string name="sahri_time">সেহরির\nসময়</string>
+    <string name="sahri_time">সেহরির\nশেষ সময়</string>
     <string name="iftar_time">ইফতারের\nসময়</string>
 
     <string name="todays_schedule">আজকের সময়সূচী %1s</string>
