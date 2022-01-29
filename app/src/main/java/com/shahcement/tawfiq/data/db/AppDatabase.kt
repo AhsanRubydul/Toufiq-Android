@@ -11,7 +11,7 @@ import com.shahcement.tawfiq.data.db.entity.District
 import com.shahcement.tawfiq.data.db.entity.Ramadan
 import com.shahcement.tawfiq.data.db.entity.Wakt
 
-@Database(entities = [District::class, Wakt::class, Ramadan::class], version = 2)
+@Database(entities = [District::class, Wakt::class, Ramadan::class], version = 3)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun districtDao(): DistrictDao
