@@ -40,6 +40,7 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java, DATABASE_NAME
                 )
                     .createFromAsset(DATABASE_NAME)
+                    .fallbackToDestructiveMigration()
                     .allowMainThreadQueries()
                     .build()
                 INSTANCE = instance
