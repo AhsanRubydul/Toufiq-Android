@@ -11,7 +11,7 @@ import com.shahcement.tawfiq.data.db.entity.District
 import com.shahcement.tawfiq.data.db.entity.Ramadan
 import com.shahcement.tawfiq.data.db.entity.Wakt
 
-@Database(entities = [District::class, Wakt::class, Ramadan::class], version = 3)
+@Database(entities = [District::class, Wakt::class, Ramadan::class], version = 4)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun districtDao(): DistrictDao
@@ -41,6 +41,7 @@ abstract class AppDatabase : RoomDatabase() {
                 )
                     .createFromAsset(DATABASE_NAME)
                     .allowMainThreadQueries()
+                    .fallbackToDestructiveMigration()
                     .build()
                 INSTANCE = instance
                 return instance
