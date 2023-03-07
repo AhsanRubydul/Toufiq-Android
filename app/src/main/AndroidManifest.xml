@@ -15,6 +15,7 @@
             android:name="com.shahcement.tawfiq.activity.ContainerActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:exported="true"
             android:name="com.shahcement.tawfiq.activity.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Launcher">
